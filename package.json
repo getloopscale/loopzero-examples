@@ -1,0 +1,8 @@
+{
+  "name": "loopzero-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node ../loopzero-skills/bin/check-example.mjs ."
+  }
+}
