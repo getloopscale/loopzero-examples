@@ -13,7 +13,7 @@
   "dependencies": {
     "@getloopscale/loopzero-agents": "12.1.0",
     "@getloopscale/loopzero-sdk": "4.63.1",
-    "loopzero": "0.63.0",
+    "loopzero": "0.64.0",
     "zod": "^4.0.0"
   },
   "devDependencies": {
