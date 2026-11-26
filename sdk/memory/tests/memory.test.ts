@@ -131,12 +131,11 @@ test("lesson pitfall-send-returns-handle: send() hands back a run that has not f
   }
 });
 
-test("lesson pitfall-permission-engine-shape: the object form silently loses the rule list", () => {
+test("lesson pitfall-permission-engine-shape: the object form is refused at construction", () => {
   const { positional, objectForm } = demonstratePermissionEngineShape();
 
   assert.ok(Array.isArray(positional), "the positional form must produce a usable rule array");
   assert.equal(positional.length, 1);
 
-  assert.ok(!Array.isArray(objectForm), "the object form is the pitfall: it does not throw");
-  assert.deepEqual(objectForm, { rules: [{ tool: "shell", action: "deny" }] });
+  assert.deepEqual(objectForm, { refused: "permission_rules_not_array" });
 });

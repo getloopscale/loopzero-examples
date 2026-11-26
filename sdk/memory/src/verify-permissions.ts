@@ -9,7 +9,8 @@
  * layer blocking the action. An engine that never matches a rule produces the same observation for
  * a different reason, and the difference is the whole claim: a layer that blocks is a defence, a
  * layer that is inert is an accident that happens to look like one. Measured against
- * @getloopscale/loopzero-sdk 4.61.0, the object form does not even throw — see `npm start -- pitfall:permissions`.
+ * the SDK of that time, the object form did not even throw. The current SDK refuses it, see
+ * `npm start -- pitfall:permissions`.
  *
  * This runs both arms with the CORRECT construction, n times each, and prints counts. It is
  * TypeScript so the construction is checked before it runs.

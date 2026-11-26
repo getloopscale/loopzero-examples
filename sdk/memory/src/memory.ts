@@ -29,12 +29,15 @@ export async function createAssistant(options: AssistantOptions) {
 
   return Agent.create({
     model: { id: model },
+    // The local providers need no credential, but the SDK only opens a real transport when a key is
+    // present. Without one it answers from its built-in fixtures and never calls the provider.
+    apiKey: "local",
     local: { cwd: projectDir },
     memory: { enabled: true },
     // An engine with no rules resolves every tool call to `ask`; with no gate configured to
     // answer, it blocks. The protection is the engine being present, not a rule written in
-    // advance against an attack nobody predicted. The rules are POSITIONAL — passing them as an
-    // options object builds an engine with no usable rule list, see `pitfall-permission-engine-shape`.
+    // advance against an attack nobody predicted. The rules are POSITIONAL: passing them as an
+    // options object is refused at construction, see `pitfall-permission-engine-shape`.
     ...(enforcePermissions
       ? { plugins: [PermissionPlugin.create(new PermissionEngine([]))] }
       : {}),

@@ -23,7 +23,7 @@ npm test          # proves it, with no credential
 npm run dev       # http://localhost:3000
 ```
 
-Pinned to `loopzero@0.63.0` and `@getloopscale/loopzero-sdk@4.63.0` — the versions published today.
+Pinned to `@getloopscale/loopzero@0.63.0` and `@getloopscale/loopzero-sdk@4.63.0` — the versions published today.
 
 ## What `npm test` actually does
 

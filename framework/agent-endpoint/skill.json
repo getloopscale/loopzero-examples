@@ -1,7 +1,7 @@
 {
   "skill": "loopzero-framework-agent-endpoint",
   "teaches": [
-    "loopzero",
+    "@getloopscale/loopzero",
     "@getloopscale/loopzero-agents",
     "@getloopscale/loopzero-sdk"
   ],

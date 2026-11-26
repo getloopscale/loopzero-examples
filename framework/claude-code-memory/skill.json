@@ -1,7 +1,7 @@
 {
   "skill": "loopzero-framework-claude-code-memory",
   "concept": "A served agent writes the same store a direct call writes — and whether the Claude Code CLI can classify it is decided by the caller's message, not by the framework",
-  "teaches": ["loopzero", "@getloopscale/loopzero-agents", "@getloopscale/loopzero-sdk"],
+  "teaches": ["@getloopscale/loopzero", "@getloopscale/loopzero-agents", "@getloopscale/loopzero-sdk"],
   "triggers": [
     "does my served agent write memory correctly",
     "memory type missing",

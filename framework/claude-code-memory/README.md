@@ -24,7 +24,7 @@ npm install
 npm test
 ```
 
-Pinned to `loopzero@0.63.0`, `@getloopscale/loopzero-agents@12.1.0` and `@getloopscale/loopzero-sdk@4.63.1`.
+Pinned to `@getloopscale/loopzero@0.63.0`, `@getloopscale/loopzero-agents@12.1.0` and `@getloopscale/loopzero-sdk@4.63.1`.
 
 ## The trip changes nothing
 
