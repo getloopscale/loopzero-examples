@@ -35,7 +35,7 @@ export default AgentBuilder.create()
  * session id may read and continue it. That is a capability model, and it is honest for an example
  * with no login. The moment an app has users, this becomes an owner check instead:
  *
- *   import { requireOwner } from 'loopzero/server/define'
+ *   import { requireOwner } from '@getloopscale/loopzero/server/define'
  *   export const policy = ({ subject, params }) =>
  *     requireOwner(subject, ownerOfConversation(params.sessionId))
  *

@@ -74,10 +74,10 @@ what makes an entry. The agent does not decide to remember and does not mine the
 facts — every entry traces to an explicit instruction. Nothing is kept unless someone asks.
 
 **`new PermissionEngine([])` takes its rules positionally.** The object form (`{ rules: [] }`)
-compiles nowhere — and, measured against `@getloopscale/loopzero-sdk` 4.61.0, does not throw either. It stores
-the whole options object in the field meant to hold the array, so no rule can ever match: a silent
-no-op wearing the shape of a configured gate. `npm start -- pitfall:permissions` prints both.
-In JavaScript nothing checks, and an inert engine produces the same observation as a working one.
+compiles nowhere and, measured against `@getloopscale/loopzero-sdk` 0.1.0, is refused at construction with
+the code `permission_rules_not_array`. Earlier releases of the SDK accepted it and stored the whole
+options object where the array belongs, so no rule could ever match. `npm start -- pitfall:permissions`
+prints both outcomes.
 
 ## The half a happy-path example will not teach you
 

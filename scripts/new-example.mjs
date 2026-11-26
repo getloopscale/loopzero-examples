@@ -36,7 +36,7 @@ function neededBy(example) {
 
 /**
  * The layers, from EXAMPLE-CONTRACT.md. `framework` is excluded from scaffolding: an app has no
- * `src/` and its shape comes from `loopzero`, not from a template here.
+ * `src/` and its shape comes from `@getloopscale/loopzero`, not from a template here.
  */
 const CATEGORIES = ["sdk", "ui", "tui", "di", "plugins", "gateways"];
 

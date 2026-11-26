@@ -101,8 +101,8 @@ const COMMANDS: Record<string, Command> = {
     run: () => {
       const shapes = demonstratePermissionEngineShape();
       for (const [label, rules] of Object.entries(shapes)) {
-        const kind = Array.isArray(rules) ? `an array of ${rules.length}` : typeof rules;
-        console.log(`${label.padEnd(10)} form: rules is ${kind} — ${JSON.stringify(rules)}`);
+        const kind = Array.isArray(rules) ? `rules is an array of ${rules.length}` : "refused at construction";
+        console.log(`${label.padEnd(10)} form: ${kind}: ${JSON.stringify(rules)}`);
       }
     },
   },

@@ -111,7 +111,7 @@ executed.
 That has one consequence worth knowing before you write an example: **everything inside a lesson is
 copied, comments included.** The doc comments in `sdk/memory/src/memory.ts` recording
 that `agent.send()` returns a handle rather than a result, and that `PermissionEngine` takes its
-rules positionally so the object form builds an engine with no usable rule list, are not asides —
+rules positionally so the object form is refused at construction, are not asides —
 they are the most valuable prose in this repository, and the generator carries them rather than
 restating them. Write the pitfall where it bit you.
 

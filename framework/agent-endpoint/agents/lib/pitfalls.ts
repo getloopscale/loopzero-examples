@@ -37,6 +37,9 @@ export const AGENT_REQUEST_HEADERS = {
  *   Model "lmstudio/…" declares provider "lmstudio", which is not registered.
  *   Registered providers: openrouter, openai, anthropic, ollama.
  *
+ * That text is written to the SERVER LOG. The HTTP response carries only a 500 saying the agent has
+ * no usable provider credential, so read the log when a request fails this way.
+ *
  * So a provider that works in a plain `Agent.create` script can fail inside a loopzero app. The
  * message names the fix — `registerProvider({ name: 'lmstudio', … })` — and the registered four
  * are what a `.model(...)` may use without it.

@@ -68,6 +68,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ### Changed
 
+- **Every example now installs the ecosystem at `0.1.0`.** The packages were renamed to
+  `@getloopscale/loopzero*` and their version line restarted, so the pins, the lockfiles and the
+  version each lesson says it was measured against all moved together.
+- **The framework examples declare `vite` and `@vitejs/plugin-react`.** The framework lists its build
+  toolchain as optional peers, and `loopzero dev` refuses to start without it.
+- **`sdk/memory` passes `apiKey: "local"`.** With no key the SDK answers from its built-in fixtures
+  and never calls the provider, which made every lesson there pass or fail on a canned reply.
+- **`pitfall-permission-engine-shape` teaches the refusal.** `new PermissionEngine({ rules })` now
+  throws a `ConfigurationError` with the code `permission_rules_not_array`; the lesson used to
+  document a silent no-op.
+- **`pitfall-provider-registry` points at the server log.** The HTTP response for an unregistered
+  provider is a 500 that names no reason, and the "not registered" text is logged on the server.
 - **Both READMEs now open the way agent-facing documentation opens**: an index pointer, a title
   phrased as what the reader will be able to do, and one blockquote line that works with no
   context around it. The reader is usually an agent and usually arrives in the middle, so the
@@ -135,7 +147,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ### Changed
 
-- `framework/agent-endpoint` is pinned to `loopzero@0.62.1` and `@getloopscale/loopzero-sdk@4.62.0` (was 0.59.0 /
+- `framework/agent-endpoint` is pinned to `@getloopscale/loopzero@0.62.1` and `@getloopscale/loopzero-sdk@4.62.0` (was 0.59.0 /
   4.61.0). Every assertion passed unchanged across both bumps, which is the answer to "did the
   release rot the example" that no typecheck can give. This is now a standing arrangement: the
   framework session runs this example's `npm test` before cutting a release, and a failure is a

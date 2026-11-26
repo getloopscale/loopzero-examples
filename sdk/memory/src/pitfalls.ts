@@ -39,32 +39,38 @@ export async function demonstrateSendReturnsHandle(
 
 // #region lesson:pitfall-permission-engine-shape
 /**
- * `PermissionEngine` takes its rules POSITIONALLY — an array, not an options object.
+ * `PermissionEngine` takes its rules POSITIONALLY: an array, not an options object.
  *
- *   WRONG — does NOT throw, and that is what makes it dangerous:
+ *   WRONG, and refused at construction:
  *     new PermissionEngine({ rules: [...] })
  *
- * Measured against @getloopscale/loopzero-sdk 4.61.0 by the command below: the object form constructs, and
- * stores the whole options object in the field meant to hold the array. The engine then holds a
- * `rules` that is not a list, so no rule can ever match — a silent no-op wearing the shape of a
- * configured gate. There is no exception to catch and no log line to notice.
+ * Measured against @getloopscale/loopzero-sdk 0.1.0 by the command below: the object form throws a
+ * `ConfigurationError` with the code `permission_rules_not_array`. Earlier releases of the SDK
+ * constructed it and stored the whole options object in the field meant to hold the array, so no
+ * rule could ever match and nothing said so. The refusal is what replaced that silence.
  *
  * A `.mjs` proof script in this project passed the object form for weeks and still observed
- * "nothing was created" — the right answer for the wrong reason. The object form typechecks
- * nowhere, which is exactly why the example is TypeScript: `strict` is what catches it.
+ * "nothing was created", the right answer for the wrong reason. The object form typechecks
+ * nowhere, which is why the example is TypeScript: `strict` catches it before it runs.
  *
  * An engine with an EMPTY array is not a no-op: with no rule matching, every tool call resolves to
  * `ask`, and with no gate configured to answer, it blocks. The protection is the engine being
- * present — not a rule written in advance against an attack nobody predicted.
+ * present, not a rule written in advance against an attack nobody predicted.
  */
 export function demonstratePermissionEngineShape(): { positional: unknown; objectForm: unknown } {
   const rule = { tool: "shell", action: "deny" };
 
   const positional = new PermissionEngine([rule as never]);
-  // @ts-expect-error — the object form is what this pitfall is about; it typechecks nowhere.
-  const objectForm = new PermissionEngine({ rules: [rule] });
-
   const rulesOf = (engine: unknown) => (engine as { rules: unknown }).rules;
-  return { positional: rulesOf(positional), objectForm: rulesOf(objectForm) };
+
+  let objectForm: unknown;
+  try {
+    // @ts-expect-error: the object form is what this pitfall is about; it typechecks nowhere.
+    objectForm = rulesOf(new PermissionEngine({ rules: [rule] }));
+  } catch (error) {
+    objectForm = { refused: (error as { code?: string }).code };
+  }
+
+  return { positional: rulesOf(positional), objectForm };
 }
 // #endregion

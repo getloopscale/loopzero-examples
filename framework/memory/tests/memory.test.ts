@@ -280,7 +280,7 @@ test("lesson pitfall-relative-directory: it writes nothing and says nothing", as
 /**
  * The boot says nothing about these routes — which is the claim, not the wish.
  *
- * `loopzero@0.64` makes `undeclaredRoutes` refuse by default and gives agent entries a named refusal
+ * `@getloopscale/loopzero@0.64` makes `undeclaredRoutes` refuse by default and gives agent entries a named refusal
  * at boot. The framework maintainer measured that the gate governs a DIFFERENT surface — entries
  * passed to `LoopZeroApp.create`, not files under `agents/` served by `mountAgent` — and that the boot
  * notice is emitted only for the former. These examples are the latter.

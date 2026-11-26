@@ -10,7 +10,7 @@
     "test": "node --import tsx --test --test-concurrency=1 tests/*.test.ts"
   },
   "dependencies": {
-    "@getloopscale/loopzero-sdk": "4.63.1"
+    "@getloopscale/loopzero-sdk": "0.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
