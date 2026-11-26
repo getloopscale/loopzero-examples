@@ -29,7 +29,7 @@
     },
     {
       "id": "pitfall-permission-engine-shape",
-      "explains": "PermissionEngine takes its rules positionally; the options-object form does not throw, it stores the options object where the array belongs, so no rule can ever match"
+      "explains": "PermissionEngine takes its rules positionally; the options-object form is refused at construction with a ConfigurationError whose code is permission_rules_not_array"
     }
   ],
   "notCovered": [
@@ -45,7 +45,7 @@
     },
     {
       "command": "npm start -- pitfall:permissions",
-      "claims": "Constructs PermissionEngine both ways against @getloopscale/loopzero-sdk 4.61.0 and prints the resulting `rules` field: an array of 1 positionally, and the whole options object for the object form. Needs no credential. It shows the object form does not throw; it does not measure what the engine then permits."
+      "claims": "Constructs PermissionEngine both ways against @getloopscale/loopzero-sdk 0.1.0 and prints the outcome: an array of 1 positionally, and the refusal code for the object form. Needs no credential. It shows the object form is refused; it does not measure what a correctly built engine then permits."
     },
     {
       "command": "npm start -- demo:poisoned",

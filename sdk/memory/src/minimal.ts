@@ -13,6 +13,9 @@ import { Agent } from "@getloopscale/loopzero-sdk";
 export async function remember(projectDir: string, model: string, fact: string): Promise<void> {
   const agent = await Agent.create({
     model: { id: model },
+    // The local providers need no credential, but the SDK only opens a real transport when a key is
+    // present. Without one it answers from its built-in fixtures and never calls the provider.
+    apiKey: "local",
     local: { cwd: projectDir },
     memory: { enabled: true },
   });
@@ -25,6 +28,9 @@ export async function remember(projectDir: string, model: string, fact: string):
 export async function recall(projectDir: string, model: string, question: string): Promise<string> {
   const agent = await Agent.create({
     model: { id: model },
+    // The local providers need no credential, but the SDK only opens a real transport when a key is
+    // present. Without one it answers from its built-in fixtures and never calls the provider.
+    apiKey: "local",
     local: { cwd: projectDir },
     memory: { enabled: true },
   });

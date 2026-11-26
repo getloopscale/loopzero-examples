@@ -9,7 +9,7 @@ import { z } from "zod";
  * asks whether the LAYOUT matches the Claude Code CLI's. The question here is different and cannot
  * be asked on that side: **does the layout survive the trip through a served agent?**
  *
- * It does. Measured against `@getloopscale/loopzero-sdk@4.63.1` and `loopzero@0.63.0`, the store a served agent
+ * It does. Measured against `@getloopscale/loopzero-sdk@4.63.1` and `@getloopscale/loopzero@0.63.0`, the store a served agent
  * writes is byte-shaped like the one a direct call writes — same index, same frontmatter keys.
  * What varies is not the layer.
  */

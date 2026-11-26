@@ -26,7 +26,7 @@ npm install
 npm test          # proves it, with no credential
 ```
 
-Pinned to `loopzero@0.63.0`, `@getloopscale/loopzero-agents@12.1.0` and `@getloopscale/loopzero-sdk@4.63.0`. The SDK version is
+Pinned to `@getloopscale/loopzero@0.63.0`, `@getloopscale/loopzero-agents@12.1.0` and `@getloopscale/loopzero-sdk@4.63.0`. The SDK version is
 not incidental — see below.
 
 ## One setting, and where it points

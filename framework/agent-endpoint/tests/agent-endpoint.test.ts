@@ -181,7 +181,11 @@ test("lesson pitfall-provider-registry: an undeclared provider prefix is refused
       body: JSON.stringify({ message: "x" }),
     });
 
-    assert.match(await response.text(), /not registered/i);
+    // The response says only that no credential could be resolved. The reason goes to the server
+    // log, because the resolver's own text can carry environment detail.
+    assert.equal(response.status, 500);
+    assert.match(await response.text(), /no usable provider credential/i);
+    assert.match(rogue.output(), /not registered/i);
   } finally {
     rogue.child.kill("SIGTERM");
   }
@@ -190,7 +194,7 @@ test("lesson pitfall-provider-registry: an undeclared provider prefix is refused
 /**
  * The boot says nothing about these routes — which is the claim, not the wish.
  *
- * `loopzero@0.64` makes `undeclaredRoutes` refuse by default and gives agent entries a named refusal
+ * `@getloopscale/loopzero@0.64` makes `undeclaredRoutes` refuse by default and gives agent entries a named refusal
  * at boot. The framework maintainer measured that the gate governs a DIFFERENT surface — entries
  * passed to `LoopZeroApp.create`, not files under `agents/` served by `mountAgent` — and that the boot
  * notice is emitted only for the former. These examples are the latter.

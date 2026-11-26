@@ -1,7 +1,7 @@
 {
   "skill": "loopzero-framework-memory",
   "concept": "An agent that is a file and remembers between HTTP requests, in a directory the app chooses",
-  "teaches": ["loopzero", "@getloopscale/loopzero-agents", "@getloopscale/loopzero-sdk"],
+  "teaches": ["@getloopscale/loopzero", "@getloopscale/loopzero-agents", "@getloopscale/loopzero-sdk"],
   "triggers": [
     "agent memory in loopzero",
     "remember between requests",

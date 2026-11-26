@@ -11,15 +11,17 @@
     "test": "node --import tsx --test --test-concurrency=1 tests/*.test.ts"
   },
   "dependencies": {
-    "@getloopscale/loopzero-agents": "12.1.0",
-    "@getloopscale/loopzero-sdk": "4.63.1",
-    "loopzero": "0.64.0",
+    "@getloopscale/loopzero-agents": "0.1.0",
+    "@getloopscale/loopzero-sdk": "0.1.0",
+    "@getloopscale/loopzero": "0.1.0",
     "zod": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "vite": "^7.3.7"
   },
   "engines": {
     "node": ">=22.12.0"
