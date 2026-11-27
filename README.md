@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/loopzero-logo-on-dark.svg">
+    <img src="./assets/loopzero-logo-on-light.svg" alt="LoopZero" height="40">
+  </picture>
+</p>
+
 # loopzero examples
 
 Runnable examples for the loopzero ecosystem. One directory per documented capability.
